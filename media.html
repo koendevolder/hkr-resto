@@ -1,0 +1,49 @@
+---
+layout: default
+---
+
+<script>
+/* global $ */
+$(function(){
+  $(window).resize(function(){
+    if($(this).width() > 767){
+      $('img').on('click', function() {
+        $('.enlargeImageModalSource').attr('src', $(this).attr('src'));
+    	  $('#enlargeImageModal').modal('show');
+      });
+    } else {
+      $('img').off('click');
+    }
+  })
+  .resize(); // trigger resize on page load
+});
+</script>
+
+<div class="modal fade" id="enlargeImageModal" tabindex="-1" role="dialog" aria-labelledby="enlargeImageModal" aria-hidden="true">
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <img src="" class="enlargeImageModalSource" style="width: 100%;">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container text-center">
+  <h1 class="my-4">Media</h1>
+  
+  <div class="row">
+    <div class="col-lg">
+    	<img src="/assets/img/media/media01.jpg" class="img-fluid" alt="">
+    </div>
+    <div class="col-lg">
+      <img src="/assets/img/media/media02.jpg" class="img-fluid" alt="">
+    </div>
+    <div class="col-lg">
+      <img src="/assets/img/media/media03.jpg" class="img-fluid" alt="">
+    </div>
+  </div>
+</div>

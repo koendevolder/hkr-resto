@@ -1,0 +1,51 @@
+---
+layout: default
+---
+<div  id="map_container">
+  <div id="map"></div>
+  
+  <script>
+	/* global google */
+  function initMap() {
+    var uluru = {lat: 51.0759313, lng: 4.709555};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 16,
+      center: uluru
+    });
+    var marker = new google.maps.Marker({
+      position: uluru,
+      map: map
+    });
+    google.maps.event.addDomListener(window, 'resize', function() {
+      google.maps.event.trigger(map, 'resize');
+      map.setCenter(uluru);
+    });
+  }
+  </script>
+  
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBp8Q2hA9nJ6fsXup-tAJoWsrUSUyoLsPA&callback=initMap"></script>
+</div>
+
+<div class="container">
+  <h1 class="my-4 text-center">Contact</h1>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <h4 class="my-4 text-left">Contactformulier</h4>
+      <p class="my-4">Reserveren kan door ons te contacteren via e-mail, telefoon of via onderstaand formulier.</p>
+      {% include contact-form.html %}
+    </div>
+    
+    <div class="col-lg-5 offset-lg-1">
+      <h4 class="my-4 text-left">Contactinformatie</h4>
+      E-mail: <a href="mailto:hkrreservering@gmail.com">hkrreservering@gmail.com</a><br>
+      Telefoonnummer: +324 11 22 33 44<br>
+      
+      <h4 class="my-4 text-left">Adres</h4>
+      Stationsstraat 45<br>
+      2220 Heist-op-den-Berg<br>
+      <a href="https://www.google.be/maps/place/Stationsstraat+45,+2220+Heist-op-den-Berg/@51.0759313,4.709555,17z/data=!3m1!4b1!4m5!3m4!1s0x47c159da93e9aaa1:0xef2a1ae919f15001!8m2!3d51.0759313!4d4.7117437" target="_blank">
+      Routebeschrijving</a>
+    </div>
+  </div>
+</div>
